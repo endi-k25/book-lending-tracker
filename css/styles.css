@@ -1,0 +1,41 @@
+/* Page-Specific Styles (builds on css/library.css) */
+.page-header h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--lib-text-main);
+}
+
+.page-header p {
+  color: var(--lib-text-muted);
+  margin-top: 4px;
+}
+
+.summary-metrics {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+}
+
+.metric-card {
+  padding: 16px;
+  border-radius: var(--lib-radius);
+  border: 1px solid var(--lib-border);
+  background: var(--lib-card-bg);
+}
+
+.metric-title {
+  font-size: 0.85rem;
+  color: var(--lib-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 600;
+}
+
+.metric-value {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-top: 8px;
+}
+
+.metric-card--primary .metric-value { color: var(--lib-primary); }
+.metric-card--danger .metric-value { color: var(--lib-danger); }

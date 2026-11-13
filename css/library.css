@@ -1,0 +1,60 @@
+/* ==========================================================================
+   REUSABLE CSS UI LIBRARY
+   ========================================================================== */
+:root {
+  --lib-primary: #3b82f6;
+  --lib-primary-hover: #2563eb;
+  --lib-danger: #ef4444;
+  --lib-danger-bg: #fee2e2;
+  --lib-danger-text: #991b1b;
+  --lib-warning: #f59e0b;
+  --lib-warning-bg: #fef3c7;
+  --lib-warning-text: #92400e;
+  --lib-success: #10b981;
+  --lib-success-bg: #d1fae5;
+  --lib-success-text: #065f46;
+  --lib-bg: #f8fafc;
+  --lib-card-bg: #ffffff;
+  --lib-border: #e2e8f0;
+  --lib-text-main: #1e293b;
+  --lib-text-muted: #64748b;
+  --lib-radius: 8px;
+  --lib-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  --lib-font: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: var(--lib-font); background-color: var(--lib-bg); color: var(--lib-text-main); }
+
+/* Containers & Cards */
+.lib-container { max-width: 1000px; margin: 0 auto; padding: 24px; display: flex; flex-direction: column; gap: 24px; }
+.lib-card { background: var(--lib-card-bg); border: 1px solid var(--lib-border); border-radius: var(--lib-radius); padding: 20px; box-shadow: var(--lib-shadow); }
+
+/* Form Components */
+.lib-form-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin-bottom: 16px; }
+.lib-form-group { display: flex; flex-direction: column; gap: 6px; }
+.lib-label { font-size: 0.875rem; font-weight: 600; }
+.lib-input, .lib-select { padding: 10px 12px; border: 1px solid var(--lib-border); border-radius: var(--lib-radius); font-size: 0.95rem; outline: none; background: #fff; font-family: inherit; }
+.lib-input:focus, .lib-select:focus { border-color: var(--lib-primary); box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15); }
+.lib-input.lib-is-invalid, .lib-select.lib-is-invalid { border-color: var(--lib-danger); background-color: #fff5f5; }
+.lib-error-message { font-size: 0.75rem; color: var(--lib-danger); min-height: 16px; font-weight: 500; }
+
+/* Buttons */
+.lib-btn { display: inline-flex; align-items: center; justify-content: center; padding: 10px 18px; border: none; border-radius: var(--lib-radius); font-weight: 600; cursor: pointer; transition: 0.2s; font-family: inherit; }
+.lib-btn--primary { background: var(--lib-primary); color: #fff; }
+.lib-btn--primary:hover { background: var(--lib-primary-hover); }
+.lib-btn--danger-sm { background: var(--lib-danger); color: #fff; padding: 6px 12px; font-size: 0.8rem; }
+.lib-btn--secondary-sm { background: var(--lib-border); color: var(--lib-text-main); padding: 6px 12px; font-size: 0.8rem; margin-right: 6px; }
+
+/* Table Component */
+.lib-table-wrapper { overflow-x: auto; }
+.lib-table { width: 100%; border-collapse: collapse; text-align: left; }
+.lib-table th, .lib-table td { padding: 12px 14px; border-bottom: 1px solid var(--lib-border); font-size: 0.9rem; }
+.lib-table th { background: #f1f5f9; color: var(--lib-text-muted); font-weight: 600; }
+.lib-table tr:hover { background: #f8fafc; }
+
+/* Badges */
+.lib-badge { display: inline-block; padding: 4px 8px; border-radius: 9999px; font-size: 0.75rem; font-weight: 600; }
+.lib-badge--warning { background: var(--lib-warning-bg); color: var(--lib-warning-text); }
+.lib-badge--success { background: var(--lib-success-bg); color: var(--lib-success-text); }
+.lib-badge--danger { background: var(--lib-danger-bg); color: var(--lib-danger-text); }

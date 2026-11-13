@@ -4,85 +4,93 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Book Lending Tracker</title>
-  <link rel="stylesheet" href="styles.css">
+  <!-- CSS Library first, then Application Layout -->
+  <link rel="stylesheet" href="css/library.css">
+  <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-  <div class="blt-container">
-
-    <header class="blt-header">
+  <div class="lib-container">
+    <!-- Header -->
+    <header class="page-header">
       <h1>Book Lending Tracker</h1>
       <p>Manage borrowed library books, track return deadlines, and monitor overdue loans.</p>
     </header>
 
-    <section class="blt-summary-grid">
-      <div class="blt-stat-card blt-stat-card--primary">
-        <div class="blt-stat-title">Total Loans</div>
-        <div id="total-loans" class="blt-stat-value">0</div>
+    <!-- Summary Area -->
+    <section class="summary-metrics">
+      <div class="metric-card metric-card--primary">
+        <div class="metric-title">Total Loans</div>
+        <div id="total-loans" class="metric-value">0</div>
       </div>
-      <div class="blt-stat-card blt-stat-card--danger">
-        <div class="blt-stat-title">Overdue Loans</div>
-        <div id="overdue-loans" class="blt-stat-value">0</div>
+      <div class="metric-card metric-card--danger">
+        <div class="metric-title">Overdue Loans</div>
+        <div id="overdue-loans" class="metric-value">0</div>
       </div>
     </section>
 
-    <section class="blt-card">
+    <!-- Loan Entry Form -->
+    <section class="lib-card">
       <form id="loan-form" novalidate>
-        <div class="blt-form-grid">
-
-          <div class="blt-form-group">
-            <label class="blt-label" for="title">Title *</label>
-            <input class="blt-input" type="text" id="title" placeholder="e.g. Clean Code">
-            <span id="title-error" class="blt-error-message"></span>
+        <div class="lib-form-grid">
+          <!-- Title (Required) -->
+          <div class="lib-form-group">
+            <label class="lib-label" for="title">Title *</label>
+            <input class="lib-input" type="text" id="title" placeholder="e.g. Clean Code">
+            <span id="title-error" class="lib-error-message"></span>
           </div>
 
-          <div class="blt-form-group">
-            <label class="blt-label" for="author">Author *</label>
-            <input class="blt-input" type="text" id="author" placeholder="e.g. Robert C. Martin">
-            <span id="author-error" class="blt-error-message"></span>
+          <!-- Author -->
+          <div class="lib-form-group">
+            <label class="lib-label" for="author">Author *</label>
+            <input class="lib-input" type="text" id="author" placeholder="e.g. Robert C. Martin">
+            <span id="author-error" class="lib-error-message"></span>
           </div>
 
-          <div class="blt-form-group">
-            <label class="blt-label" for="borrower">Borrower *</label>
-            <input class="blt-input" type="text" id="borrower" placeholder="e.g. John Doe">
-            <span id="borrower-error" class="blt-error-message"></span>
+          <!-- Borrower (Required Text) -->
+          <div class="lib-form-group">
+            <label class="lib-label" for="borrower">Borrower *</label>
+            <input class="lib-input" type="text" id="borrower" placeholder="e.g. John Doe">
+            <span id="borrower-error" class="lib-error-message"></span>
           </div>
 
-          <div class="blt-form-group">
-            <label class="blt-label" for="dueDate">Due Date *</label>
-            <input class="blt-input" type="date" id="dueDate">
-            <span id="dueDate-error" class="blt-error-message"></span>
+          <!-- Due Date -->
+          <div class="lib-form-group">
+            <label class="lib-label" for="dueDate">Due Date *</label>
+            <input class="lib-input" type="date" id="dueDate">
+            <span id="dueDate-error" class="lib-error-message"></span>
           </div>
 
-          <div class="blt-form-group">
-            <label class="blt-label" for="genre">Genre *</label>
-            <select class="blt-select" id="genre">
+          <!-- Genre -->
+          <div class="lib-form-group">
+            <label class="lib-label" for="genre">Genre *</label>
+            <select class="lib-select" id="genre">
               <option value="">Select genre</option>
               <option value="Fiction">Fiction</option>
               <option value="Non-Fiction">Non-Fiction</option>
               <option value="Technology">Technology</option>
               <option value="Science">Science</option>
               <option value="History">History</option>
-              <option value="Philosophy">Philosophy</option>
             </select>
-            <span id="genre-error" class="blt-error-message"></span>
+            <span id="genre-error" class="lib-error-message"></span>
           </div>
 
-          <div class="blt-form-group">
-            <label class="blt-label" for="status">Status</label>
-            <select class="blt-select" id="status">
+          <!-- Status -->
+          <div class="lib-form-group">
+            <label class="lib-label" for="status">Status</label>
+            <select class="lib-select" id="status">
               <option value="Borrowed">Borrowed</option>
               <option value="Returned">Returned</option>
             </select>
           </div>
         </div>
-
-        <button type="submit" class="blt-btn blt-btn--primary">Add Loan Record</button>
+        <button type="submit" class="lib-btn lib-btn--primary">Add Loan Record</button>
       </form>
     </section>
 
-    <section class="blt-card">
-      <div class="blt-table-wrapper">
-        <table class="blt-table">
+    <!-- Loans Table -->
+    <section class="lib-card">
+      <div class="lib-table-wrapper">
+        <table class="lib-table">
           <thead>
             <tr>
               <th>Title</th>
@@ -94,13 +102,14 @@
               <th>Action</th>
             </tr>
           </thead>
-          <tbody id="loans-table-body">
-          </tbody>
+          <tbody id="loans-table-body"></tbody>
         </table>
       </div>
     </section>
   </div>
 
-  <script src="app.js"></script>
+  <!-- Reusable JS Validation Library, then Application Logic -->
+  <script src="js/validator.js"></script>
+  <script src="js/app.js"></script>
 </body>
 </html>

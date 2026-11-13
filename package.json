@@ -1,0 +1,6 @@
+{
+  "name": "book-lending-tracker",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "worker.js"
+}

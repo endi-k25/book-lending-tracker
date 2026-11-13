@@ -2,5 +2,11 @@
   "name": "book-lending-tracker",
   "version": "1.0.0",
   "type": "module",
-  "main": "worker.js"
+  "main": "worker.js",
+  "scripts": {
+    "deploy": "wrangler deploy"
+  },
+  "devDependencies": {
+    "wrangler": "^3.80.0"
+  }
 }
